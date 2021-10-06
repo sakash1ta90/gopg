@@ -1,0 +1,9 @@
+info:
+  contact: {}
+  description: このswaggerはgin-swaggerの見本apiです
+  license:
+    name: sakashita
+  title: gin-swagger test
+  version: "1.0"
+paths: {}
+swagger: "2.0"

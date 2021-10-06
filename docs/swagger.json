@@ -1,0 +1,13 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "このswaggerはgin-swaggerの見本apiです",
+        "title": "gin-swagger test",
+        "contact": {},
+        "license": {
+            "name": "sakashita"
+        },
+        "version": "1.0"
+    },
+    "paths": {}
+}
