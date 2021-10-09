@@ -5,7 +5,12 @@ services:
     container_name: gopg
     build: .
     ports:
-     - "8080:8080"
+     - "80:8080"
     volumes:
       - ./:/go/src
     tty: true
+    healthcheck:
+      test: ["CMD-SHELL", "sh", "-c", "'echo -e \"GET / HTTP/1.0\nHost: localhost\n\n\" | nc localhost 8080'"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
