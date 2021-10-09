@@ -27,6 +27,8 @@ ps: ## psコマンドの実行
 .PHONY: bash
 ash: ## ashコマンド
 	@docker compose exec app ash
-ci: ## CI用コマンド
+ci: ## CI用コマンド(docker cliのバージョンが古い)
 	@docker-compose build
 	@docker-compose up -d
+swag: ## swagger更新
+	@docker compose exec app swag init

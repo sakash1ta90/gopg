@@ -12,7 +12,7 @@ import (
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
-// @title gin-swagger test
+// @title gin-swagger main
 // @version 1.0
 // @license.name sakashita
 // @description このswaggerはgin-swaggerの見本apiです

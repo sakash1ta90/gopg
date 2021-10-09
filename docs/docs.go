@@ -43,7 +43,7 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "",
 	BasePath:    "",
 	Schemes:     []string{},
-	Title:       "gin-swagger test",
+	Title:       "gin-swagger main",
 	Description: "このswaggerはgin-swaggerの見本apiです",
 }
 

@@ -3,7 +3,7 @@ info:
   description: このswaggerはgin-swaggerの見本apiです
   license:
     name: sakashita
-  title: gin-swagger test
+  title: gin-swagger main
   version: "1.0"
 paths: {}
 swagger: "2.0"
