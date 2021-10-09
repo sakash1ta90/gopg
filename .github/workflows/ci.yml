@@ -1,0 +1,13 @@
+name: test up
+on: 
+  push:
+  schedule:
+    - cron: "0 10 1 * *"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run: make ci
