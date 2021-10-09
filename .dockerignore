@@ -1,0 +1,4 @@
+.env.example
+README.md
+Dockerfile
+docker-compose.yml
