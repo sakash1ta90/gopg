@@ -1,5 +1,4 @@
-# gopg
-golang-playground
+# gopg: golang-playground
 Golangのお勉強場所
 
 ## 技術スタック
