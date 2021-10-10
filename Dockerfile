@@ -1,7 +1,6 @@
 FROM golang:1.17-alpine
 
 WORKDIR /go/src
-RUN ls -la
 COPY . .
 
 RUN apk upgrade --update && \
@@ -9,8 +8,6 @@ RUN apk upgrade --update && \
     go get -u github.com/cosmtrek/air && \
     go install github.com/swaggo/swag/cmd/swag@latest && \
     go build -o /go/bin/air github.com/cosmtrek/air && \
-    go build -o /go/bin/swag github.com/swaggo/swag/cmd/swag && \
-    adduser -D gouser && chown -R gouser /go/src
-USER gouser
+    go build -o /go/bin/swag github.com/swaggo/swag/cmd/swag
 
 CMD ["air", "-c", ".air.toml"]
