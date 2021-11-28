@@ -7,3 +7,4 @@ Golangのお勉強場所
 - gin
 - air
 - gorm
+- delve
