@@ -7,11 +7,14 @@ tmp_dir = "tmp"
 
 [build]
 # Just plain old shell command. You could use `make` as well.
-cmd = "go build -o ./tmp/main ."
+cmd = "go build -o tmp/app ./main.go"
 # Binary file yields from `cmd`.
-bin = "tmp/main"
+bin = "tmp/app"
 # Customize binary.
-full_bin = "APP_ENV=dev APP_USER=air ./tmp/main"
+# デバッグする場合
+#full_bin = "APP_ENV=dev APP_USER=air /go/bin/dlv exec ./tmp/app --headless=true --listen=:2345 --api-version=2 --accept-multiclient"
+# 通常実行の場合
+full_bin = "APP_ENV=dev APP_USER=air ./tmp/app"
 # Watch these filename extensions.
 include_ext = ["go", "tpl", "tmpl", "html"]
 # Ignore these filename extensions or directories.
@@ -20,12 +23,6 @@ exclude_dir = ["assets", "tmp", "vendor", "frontend/node_modules"]
 include_dir = []
 # Exclude files.
 exclude_file = []
-# Exclude specific regular expressions.
-exclude_regex = ["_test.go"]
-# Exclude unchanged files.
-exclude_unchanged = true
-# Follow symlink for directories
-follow_symlink = true
 # This log file places in your tmp_dir.
 log = "air.log"
 # It's not necessary to trigger build each time file changes if it's too frequent.

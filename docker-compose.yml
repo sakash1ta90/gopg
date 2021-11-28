@@ -3,14 +3,24 @@ version: '3.7'
 services:
   app:
     container_name: gopg
-    build: .
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: build
+    stop_signal: SIGKILL
     ports:
-     - 80:${APP_PORT:-8080}
+      - 8080:${APP_PORT:-8080}
+      - "2345:2345"
     volumes:
       - ./:/go/src
     tty: true
+    command: "air -c .air.toml"
+    security_opt:
+      - apparmor:unconfined
+    cap_add:
+      - SYS_PTRACE
     healthcheck:
-      test: ["CMD-SHELL", "sh", "-c", "'echo -e \"GET / HTTP/1.0\nHost: localhost\n\n\" | nc localhost ${APP_PORT}'"]
+      test: ["CMD-SHELL", "curl http://localhost:8080/ || exit 1"]
       interval: 10s
       timeout: 3s
       retries: 10
