@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	_ "gopg/docs"
+	"gopg/internal/handler"
 	"log"
 	"os"
 
@@ -22,12 +23,7 @@ func main() {
 	}
 
 	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message":     "hello,work",
-			"port_number": os.Getenv("APP_PORT"),
-		})
-	})
+	r.GET("/", handler.Health)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	r.Run(fmt.Sprintf(":%s", os.Getenv("APP_PORT")))
 }
