@@ -14,7 +14,6 @@ import (
 
 // @title gin-swagger main
 // @version 1.0
-// @license.name sakashita
 // @description このswaggerはgin-swaggerの見本apiです
 func main() {
 	err := godotenv.Load()

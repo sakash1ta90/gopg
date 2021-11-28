@@ -4,9 +4,6 @@
         "description": "このswaggerはgin-swaggerの見本apiです",
         "title": "gin-swagger main",
         "contact": {},
-        "license": {
-            "name": "sakashita"
-        },
         "version": "1.0"
     },
     "paths": {}
