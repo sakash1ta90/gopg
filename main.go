@@ -24,6 +24,7 @@ func main() {
 
 	r := gin.Default()
 	r.GET("/", handler.Health)
+	r.GET("/test", handler.Test)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	r.Run(fmt.Sprintf(":%s", os.Getenv("APP_PORT")))
 }
