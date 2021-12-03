@@ -6,9 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const testJson = `{"hoge":null,"fuga":"test","piyo":""}`
-
 type JsonString string
+type myJson = JsonString
 
 func (t *JsonString) Get(defaultValue interface{}) JsonString {
 	if t == nil {
@@ -19,13 +18,13 @@ func (t *JsonString) Get(defaultValue interface{}) JsonString {
 
 func Test(c *gin.Context) {
 	var unmarshalled TestResponse
-	if err := json.Unmarshal([]byte(testJson), &unmarshalled); err != nil {
+	if err := json.Unmarshal([]byte(`{"hoge":null,"fuga":"test","piyo":""}`), &unmarshalled); err != nil {
 		c.JSON(500, ErrorResponse{
 			Message: err.Error(),
 		})
 		return
 	}
-	c.JSON(200, []JsonString{
+	c.JSON(200, []myJson{
 		unmarshalled.Hoge.Get("no"),
 		unmarshalled.Fuga.Get("no"),
 		unmarshalled.Piyo.Get("no"),
@@ -33,9 +32,9 @@ func Test(c *gin.Context) {
 }
 
 type TestResponse struct {
-	Hoge *JsonString `json:"hoge"`
-	Fuga *JsonString `json:"fuga"`
-	Piyo *JsonString `json:"piyo"`
+	Hoge *myJson `json:"hoge"`
+	Fuga *myJson `json:"fuga"`
+	Piyo *myJson `json:"piyo"`
 }
 
 type ErrorResponse struct {
